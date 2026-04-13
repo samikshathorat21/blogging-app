@@ -1,8 +1,60 @@
-body{
-    background: #eceff1!important;
+:root {
+    --bg-color-light: #eceff1;
+    --text-color-light: #212529;
+    --bg-color-dark: #121212;
+    --text-color-dark: #ffffff;
+    --card-bg-dark: #1e1e1e;
+    --nav-bg-dark: #212529;
+    --border-dark: #333;
+}
+
+body {
+    background: var(--bg-color-light)!important;
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background: var(--bg-color-dark)!important;
+    color: var(--text-color-dark)!important;
+}
+
+body.dark-mode .card, body.dark-mode .list-group-item {
+    background-color: var(--card-bg-dark)!important;
+    color: var(--text-color-dark)!important;
+    border-color: var(--border-dark)!important;
+}
+
+body.dark-mode .navbar {
+    background-color: var(--nav-bg-dark)!important;
+}
+
+body.dark-mode input, body.dark-mode textarea {
+    background-color: var(--card-bg-dark)!important;
+    color: var(--text-color-dark)!important;
+    border-color: var(--border-dark)!important;
+}
+
+body.dark-mode select {
+    background-color: var(--card-bg-dark)!important;
+    color: var(--text-color-dark)!important;
+    border-color: var(--border-dark)!important;
 }
 
 .page-item.active .page-link{
-    background-color: #121212!important;
+    background-color: var(--bg-color-dark)!important;
     border-color: #ff0000!important;
+}
+
+body.dark-mode .page-item.active .page-link {
+    background-color: #333!important;
+    border-color: #ff0000!important;
+}
+
+body.dark-mode a {
+    color: #bb86fc;
+}
+
+body.dark-mode .text-muted {
+    color: #aaaaaa!important;
 }

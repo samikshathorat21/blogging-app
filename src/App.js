@@ -17,30 +17,34 @@ import PostPage from "./pages/PostPage";
 import UserProvider from "./context/UserProvider";
 import Categories from "./pages/Categories";
 import UpdateBlog from "./pages/UpdateBlog";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <UserProvider>        
-      <BrowserRouter>
-        <ToastContainer />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/posts/:postId" element={<PostPage />} />
-          <Route path="/categories/:categoryId" element={<Categories />} />
+    <ThemeProvider>
+      <UserProvider>        
+        <BrowserRouter>
+          <ToastContainer />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/posts/:postId" element={<PostPage />} />
+            <Route path="/categories/:categoryId" element={<Categories />} />
 
-          <Route path="/user" element={<Privateroute />}>
-            <Route path="dashboard" element={<Userdashboard />} />
-            <Route path="profile-info/:userId" element={<ProfileInfo />} />
-            <Route path="update-blog/:blogId" element={<UpdateBlog />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </UserProvider>
+            <Route path="/user" element={<Privateroute />}>
+              <Route path="dashboard" element={<Userdashboard />} />
+              <Route path="profile-info/:userId" element={<ProfileInfo />} />
+              <Route path="update-blog/:blogId" element={<UpdateBlog />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </UserProvider>
+    </ThemeProvider>
   );
 }
+
 
 export default App;

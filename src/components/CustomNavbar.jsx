@@ -5,9 +5,11 @@ import { NavLink as ReactLink, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
 import { doLogout, getCurrentUserDetail, isLoggedIn } from "../auth";
 import userContext from "../context/userContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const CustomNavbar = () => {
     const userContextData = useContext(userContext)
+    const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
     let navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
     const [login, setLogin] = useState(false)
@@ -105,6 +107,11 @@ const CustomNavbar = () => {
 
 
                     <Nav navbar>
+                        <NavItem>
+                            <NavLink onClick={toggleTheme} style={{cursor: 'pointer'}}>
+                                {isDarkTheme ? "☀️" : "🌙"}
+                            </NavLink>
+                        </NavItem>
 
                         {
                             login && (
